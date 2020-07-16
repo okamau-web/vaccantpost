@@ -1,0 +1,9 @@
+<% jobCoverClass = locals.large ? 'job-cover-large' : '' %>
+<% jobGridClass = locals.large ? 'job-grid-large' : '' %>
+<div class="job-grid <%= jobGridClass %>">
+  <% jobs.forEach(job => { %>
+    <a href="/jobs/<%= job.id %>">
+      <img class="job-cover <%= jobCoverClass %>" src="<%= job.coverImagePath %>">
+    </a>
+  <% }) %>
+</div>

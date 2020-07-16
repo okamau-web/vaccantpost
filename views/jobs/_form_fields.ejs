@@ -1,0 +1,41 @@
+<div class="form-row">
+  <div class="form-item">
+    <label>Title</label>
+    <input type="text" name="title" value="<%= job.title %>">
+  </div>
+  <div class="form-item">
+    <label>Employer</label>
+    <select name="employer">
+      <% employers.forEach(employer => { %>
+        <% if (employer.id === job.employer) { %>
+          <option selected label="<%= employer.name %>" value="<%= employer.id %>">
+        <% } else { %>
+          <option label="<%= employer.name %>" value="<%= employer.id %>">
+        <% } %>
+      <% }) %>
+    </select>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-item">
+    <label>Publish Date</label>
+    <input type="date" name="publishDate"
+          value="<%= job.publishDate == null ? '' : job.publishDate.toISOString().split('T')[0] %>">
+  </div>
+  <div class="form-item">
+    <label>Salary Scale</label>
+    <input type="text" name="salary"  value="<%= job.salary %>">
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-item form-item-no-grow">
+    <label>Cover</label>
+    <input type="file" name="cover" class="job-cover filepond">
+  </div>
+  <div class="form-item">
+    <label>Description</label>
+    <textarea name="description"><%= job.description %></textarea>
+  </div>
+</div>

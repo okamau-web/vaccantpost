@@ -1,0 +1,24 @@
+<h2 class="page-header">Search Employers</h2>
+<form action="/employers" method="GET">
+  <div class="form-row">
+    <div class="form-item">
+      <label>Name</label>
+      <input type="text" name="name" value="<%= searchOptions.name %>">
+    </div>
+  </div>
+  <div class="form-row form-row-end">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
+</form>
+<br>
+<% employers.forEach(employer => { %>
+  <div class="employer-row">
+    <div class="employer-name"><%= employer.name %></div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/employers/<%= employer.id %>">View</a>
+      <a class="btn btn-primary" href="/employers/<%= employer.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm',
+                  { url: `/employers/${employer.id}` }) %>
+    </div>
+  </div>
+<% }) %>

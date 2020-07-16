@@ -1,0 +1,21 @@
+<h2 class="page-header"><%= job.title %></h2>
+<div class="job-details">
+  <div>
+    <img class="job-cover" src="<%= job.coverImagePath %>">
+    <div class="job-details-btn-grid">
+      <a class="btn btn-primary" href="/jobs/<%= job.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm', { url: `/jobs/${job.id}` }) %>
+      <a class="btn btn-primary job-details-employer-button" href="/employers/<%= job.employer.id %>">View Employer</a>
+    </div>
+  </div>
+  <div class="job-details-grid">
+    <div class="job-details-label">Employer:</div>
+    <div><%= job.employer.name %></div>
+    <div class="job-details-label">Publish Date:</div>
+    <div><%= job.publishDate.toDateString() %></div>
+    <div class="job-details-label">Page Count:</div>
+    <div><%= job.salary %></div>
+    <div class="job-details-label">Description:</div>
+    <div><%= job.description %></div>
+  </div>
+</div>

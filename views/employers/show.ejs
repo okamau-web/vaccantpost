@@ -1,0 +1,10 @@
+<h2 class="page-header"><%= employer.name %></h2>
+<div class="btn-row">
+  <a class="btn btn-primary" href="/employers/<%= employer.id %>/edit">Edit</a>
+  <%- include('../partials/deleteForm',
+              { url: `/employers/${employer.id}` }) %>
+</div>
+<% if (jobsByEmployer.length > 0) { %>
+  <h2 class="page-header">Jobs By Employer</h2>
+  <%- include('../partials/jobGrid', { jobs: jobsByEmployer }) %>
+<% } %>
